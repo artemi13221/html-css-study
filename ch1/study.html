@@ -4,26 +4,47 @@
     <meta charset="utf-8" />
     <title>안녕하세요!</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://static.twitchcdn.net/assets/favicon-32-d6025c14e900565d6177.png" />
+    <link rel="stylesheet" href="./study.css" />
   </head>
   <body>
-    <h1>
-      <a href="https://twitch.tv/">트위치</a>
-      <!-- This is comment -->
-      <!-- href is attribute-->
-    </h1>
-    <h2>로그인</h2>
-    <h3>스트리머 영상</h3>
-    <h3>스트리머 검색</h3>
-    <fieldset>
-      <legend>검색</legend>
-      <input type="text" />
-      <!--
-      <input type="checkbox" />
-      <input type="radio" name="group" />
-      <input type="radio" name="group" />
-      -->
-      <button>검색</button>
-    </fieldset>
-    <h3>내가 자주보는 영상</h3>
-  </body>
-</html>
+    <header>
+      <h1>
+        <a href="https://twitch.tv/">트위치</a>
+        <!-- This is comment -->
+        <!-- href is attribute-->
+      </h1>
+      <h2>팔로잉</h2>
+      <h2>탐색</h2>
+      <h2>더보기</h2>
+      <h2>로그인</h2>
+      <fieldset>
+        <legend>검색</legend>
+        <input type="text" />
+        <button>버튼</button>
+      </fieldset>
+    </header>
+    <main>
+      <div id="main-item"> <!-- 가운데 정렬용 div -->
+      <!-- Attribute: value; Attribute2: value2 -->
+      <!-- HTML 안에 CSS를 쓰는 스타일 ==> 인라인 방식 -->
+        <h3>취향 저격 생방송 채널</h3>
+        <ul> <!-- unordered list -->
+          <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/hanryang1125-profile_image-58261d78af47d249-70x70.jpeg" alt = "풍월향"/> </li> <!-- list item -->
+          <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/3babca40-428b-49c4-88b2-5c9117033898-profile_image-70x70.png" alt = "아미타빌"/></li> <!-- list item -->
+          <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/d918749b-19c8-40ab-8087-682d9edbea68-profile_image-70x70.png"alt = "씨랙"/></li> <!-- list item -->
+          <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/bd78cfa0-2a52-4dc1-a719-60621d561879-profile_image-70x70.jpeg" alt = "빅헤드"/></li> <!-- list item -->
+          <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/4c940852-c0fb-4a61-9efe-dc2a562008fb-profile_image-70x70.png" alt = "조디악"/></li> <!-- list item -->
+        </ul>
+        <!-- ul이 아닌 ol은 unordered가 아닌 ordered 즉 정렬 -->
+        <!-- li는 리스트 안 아이템 -->
+        <!-- img태그는 src로 경로 설정 -->
+        <!-- img태그 후 alt로 설명 붙혀주기 -->
+        <b>굵게</b>
+        <i>기울게</i>
+        <h3>취향 저격 카테고리</h3>
+        <h3>추천 소규모 채널</h3>
+        <h3>모두 후원 열차에 탑승해 주세요!</h3>
+      </div>
+      </main>
+    </body>
+    </html>
