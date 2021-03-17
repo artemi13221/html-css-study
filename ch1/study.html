@@ -2,26 +2,36 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>안녕하세요!</title>
+    <title>Twitch</title>
     <link rel="icon" type="image/png" sizes="32x32" href="https://static.twitchcdn.net/assets/favicon-32-d6025c14e900565d6177.png" />
     <link rel="stylesheet" href="./study.css" />
   </head>
   <body>
     <header>
-      <h1>
-        <a href="https://twitch.tv/">트위치</a>
-        <!-- This is comment -->
-        <!-- href is attribute-->
-      </h1>
-      <h2>팔로잉</h2>
-      <h2>탐색</h2>
-      <h2>더보기</h2>
-      <h2>로그인</h2>
-      <fieldset>
-        <legend>검색</legend>
-        <input type="text" />
-        <button>버튼</button>
-      </fieldset>
+      <div id="header-name">
+        <h1>
+          <a href="https://twitch.tv/">
+            <span>트위치</span>
+          </a>
+          <!-- This is comment -->
+          <!-- href is attribute-->
+        </h1>
+      </div>
+      <div id="header-menu">
+        <h2>팔로잉</h2>
+        <h2>탐색</h2>
+        <h2>더보기</h2>
+        <fieldset>
+          <legend class="hidden">검색</legend>
+          <input type="text" />
+          <button>
+            <span class="hidden">버튼</span>
+            <span id="image_search"></span>
+          </button>
+        </fieldset>
+        <h2 class="block-inline">로그인</h2>
+        <h2 class="block-inline">회원가입</h2>
+      </div>
     </header>
     <main>
       <div id="main-item"> <!-- 가운데 정렬용 div -->
