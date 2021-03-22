@@ -25,7 +25,7 @@ div#header-banner {
   margin: 0 auto;
   position: relative;
   border-bottom: 1px solid #e4e8eb;
-} 
+}
 
 div#header-banner > h1 {
   display: inline-block;
@@ -168,7 +168,7 @@ div#header-movenmentsite {
   right: 0;
 }
 
-div#header-movenmentsite > a{
+div#header-movenmentsite > a {
   font-size: 11px;
   color: black;
   text-decoration: none;
@@ -183,11 +183,11 @@ div#header-nav-group {
   border-bottom: 1px solid #e4e8eb;
 }
 
-div#header-nav-group  ul {
+div#header-nav-group ul {
   list-style: none;
   font-size: 15px;
-  line-height: 30px;
-  font-weight: 700;
+  line-height: 36px;
+  font-weight: 600;
   color: #000;
   letter-spacing: -0.3px;
   margin: 0;
@@ -195,6 +195,7 @@ div#header-nav-group  ul {
 }
 
 .nav-item-before {
+  vertical-align: top;
   float: left;
   margin-right: 15px;
   color: #19ce60;
@@ -219,7 +220,7 @@ div#nav-weather > ul {
 }
 
 main {
-  width:1130px;
+  width: 1130px;
   margin: 0 auto;
 }
 
@@ -295,7 +296,7 @@ div#main-news-company {
   margin-top: 9px;
 }
 
-#news-company-stand-table > table{
+#news-company-stand-table > table {
   border-collapse: collapse;
 }
 
@@ -305,7 +306,7 @@ div#main-news-company {
   width: 150px;
   height: 70px;
   text-align: center;
-  border: 1px solid #dae1e6
+  border: 1px solid #dae1e6;
 }
 
 #main-today-recommand-post {
@@ -361,7 +362,7 @@ div#main-news-company {
 
 .main-today-recommand-post-animal {
   background-color: #42be6f;
-  color: #FFF;
+  color: #fff;
 }
 
 #main-today-recommand-post-main {
@@ -425,14 +426,199 @@ div#main-today-recommand-post-secview {
   height: 98px;
   margin-bottom: 20px;
 }
+
 div#main-today-recommand-post-thridview {
   width: 364px;
   height: 98px;
   margin-bottom: 20px;
 }
+
 div#main-today-recommand-post-fourview {
   width: 364px;
   height: 98px;
   margin-bottom: 20px;
 }
 
+div#main-login {
+  background-color: #f7f9fa;
+  border: 1px solid #dae1e6;
+  margin-top: 20px;
+  padding: 16px 16px 12px 17px;
+  position: relative;
+}
+
+.main-login-msg {
+  display: block;
+  font-size: 12px;
+  color: gray;
+}
+
+div#main-login > button {
+  display: block;
+  width: 315px;
+  background-color: #19ce60;
+  margin-top: 10px;
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  border: 1px solid #19ce60;
+  color: white;
+}
+
+div#main-login > button > span {
+  width: 60px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 2px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2021/sp_main_153a02.png);
+  background-size: 440px 410px;
+  background-position: -271px -267px;
+  background-repeat: no-repeat;
+}
+
+div#main-login > div {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.main-login-id::before {
+  content: "";
+  width: 11px;
+  height: 14px;
+  display: inline-block;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2021/sp_main_153a02.png);
+  background-size: 440px 410px;
+  background-repeat: no-repeat;
+  background-position: -408px -55px;
+  margin: -1px 2px -1px -1px;
+}
+
+.main-login-pw::before {
+  background-color: #d7dce0;
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  vertical-align: top;
+  content: "";
+  margin: 0 5px 0 2px;
+  vertical-align: 3px;
+}
+
+.main-login-register::before {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2021/sp_main_153a02.png);
+  background-size: 440px 410px;
+  background-position: -345px -308px;
+  background-repeat: no-repeat;
+  content: "";
+  margin: 2px 5px 0 0;
+}
+
+.main-login-register {
+  float: right;
+}
+
+#main-finance {
+  margin-top: 20px;
+  padding: 10px 5px 13px 5px;
+  border: 1px solid #dae1e6;
+}
+
+.main-finance-title {
+  margin-left: 10px;
+  padding: 2px 5px 2px 5px;
+  border-radius: 10px;
+  border: 1px solid red;
+  font-size: 11px;
+  font-weight: 700;
+  color: red;
+}
+
+.main-finance-content {
+  margin-left: 3px;
+  font-size: 13px;
+}
+
+.main-finance-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: red;
+}
+
+#main-trendshopping {
+  margin-top: 20px;
+}
+
+#main-trendshopping-title {
+  font-size: 14px;
+  display: block;
+  padding: 12px 0 17px 0;
+}
+
+#main-trendshopping-title > b {
+  float: left;
+}
+#main-trendshopping-title > b::before {
+  display: inline-block;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  background-position: -26px -54px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+  background-size: 107px 78px;
+}
+
+#main-trendshopping-title > b::after {
+  display: inline-block;
+  width: 5px;
+  height: 9px;
+  background-position: -43px -54px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  margin-left: 7px;
+  vertical-align: 0;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+  background-size: 107px 78px;
+}
+
+.main-trendshopping-nav {
+  font-size: 15px;
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 600;
+}
+
+.main-trendshopping-nav > li {
+  float: left;
+  margin-left: 10px;
+}
+
+.main-trendshopping-nav-select {
+  color: #19ce60;
+  border-bottom: 2px solid #19ce60;
+}
+
+#main-trendshopping-main {
+  margin: 10px 0;
+  border: 1px solid #dae1e6;
+}
+
+.main-trendshopping-brand {
+  list-style: none;
+  padding: 5px 30px;
+  background-color: rgb(253, 240, 240);
+}
+
+.main-trendshopping-brand > li {
+  float: left;
+}
