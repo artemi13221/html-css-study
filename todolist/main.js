@@ -27,6 +27,8 @@ window.onload = function () {
         print(array);
     });
 
+    // 배열 자체에 element를 넣는 방법도 생각해보자. 그렇게 된다면 항상 forEach를 하지 않아도 된다는 장점이 있음.
+    // 함수 하나가 하는 일이 너무 많다. 의존성이 너무 강하다보니 다 한 함수에 몰려 생기는 일
     function print(array) {
         textarea.innerHTML = '<h2>Today</h2>';
         array.forEach(function(item, i) {
@@ -68,3 +70,5 @@ window.onload = function () {
         });
     }
 }
+
+// 코드 전체상으로 리팩토링이 요구 된다.
