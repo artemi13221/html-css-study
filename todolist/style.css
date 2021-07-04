@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 15px auto;
+  width: 70%;
+}
+
+header {
+  background-color: #038cfc;
+  border-bottom: 1px solid #dae1e6;
+}
+
+header a {
+  margin-left: 30px;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#textArea {
+  overflow: hidden;
+}
+
+#input-text {
+  width: 70%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 5px;
+  background-color: #03f4fc;
+}
+
+#input-text input {
+  background-color: #03f4fc;
+  border: 0;
+  border-radius: 7px;
+  height: 30px;
+  width: 100%;
+}
+
+#input-text button {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dae1e6;
+  background-color: #03f4fc;
+}
+#textArea h2 {
+  margin-bottom: 20px;
+}
+
+#textArea span {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid #dae1e6;
+  overflow: hidden;
+}
+
+#textArea button {
+  position: absolute;
+  right: 0;
+  border: 0;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
