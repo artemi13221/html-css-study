@@ -81,8 +81,13 @@ sendBtn.addEventListener('click', () => {
     addArrayText(createTextTag(sendTextBox.value));
     sendTextBox.value = '';
 
-    console.log(textArray);
     print();
+});
+
+sendTextBox.addEventListener('keydown', e => {
+    if (e.key == 'Enter') {
+        sendBtn.click();
+    }
 });
 
 function addArrayText(spanTag) {
@@ -140,4 +145,4 @@ function print() {
     textArray.forEach((item) => {
         textAreaDiv.append(item);
     });
-}
+} 
