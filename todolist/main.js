@@ -1,5 +1,6 @@
+/*
 window.onload = function () {
-    const btn = document.querySelector('#textSumbit');
+    const btn = document.querySelector('#textSubmit');
     const textbox = document.querySelector('#textInput');
     const textarea = document.querySelector('#textArea');
     let array = [];
@@ -7,13 +8,7 @@ window.onload = function () {
     // 동일하게 반복한 문장은 form태그를 이용해 해결 가능.
     textbox.addEventListener('keypress', (e) => {
         if (e.key == 'Enter') {
-            if (!textbox.value) {
-                return
-            }
-            array.push([textbox.value, 0]);
-            textbox.value = '';
-    
-            print(array);
+            btn.click();
         }
     });
     
@@ -72,3 +67,81 @@ window.onload = function () {
 }
 
 // 코드 전체상으로 리팩토링이 요구 된다.
+*/
+"use strict";
+const sendBtn = document.querySelector("#text-submit");
+const sendTextBox = document.querySelector("#text-input");
+const textAreaDiv = document.querySelector("#textArea");
+const textArray = [];
+
+sendBtn.addEventListener("click", () => {
+  if (sendTextBox.value === "") {
+    return;
+  }
+  addArrayText(createTextTag(sendTextBox.value));
+  sendTextBox.value = "";
+
+  print();
+});
+
+sendTextBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    sendBtn.click();
+  }
+});
+
+function addArrayText(spanTag) {
+  textArray.push(spanTag);
+}
+
+function removeArrayText(spanTag) {
+  const tmp = spanTag.closest("span");
+  textArray.forEach((item, i) => {
+    if (item === tmp) {
+      textArray.splice(i, 1);
+    }
+  });
+}
+
+function createTextTag(inputMsg) {
+  const textSpanTag = document.createElement("span");
+  const textRemoveBtnTag = document.createElement("button");
+  const textCheckBoxTag = document.createElement("input");
+  textCheckBoxTag.type = "checkbox";
+  textCheckBoxTag.checked = false;
+
+  textRemoveBtnTag.append("🗑️");
+  textSpanTag.append(textCheckBoxTag, ` ${inputMsg}`, textRemoveBtnTag);
+
+  addEventTag(textRemoveBtnTag, textCheckBoxTag);
+
+  return textSpanTag;
+}
+
+function addEventTag(removeBtnTag, checkBoxTag) {
+  checkBoxTag.addEventListener("change", (e) => {
+    if (e.target.checked) {
+      checkBoxTag.checked = true;
+      const tmpSpanTag = checkBoxTag.closest("span");
+      tmpSpanTag.classList.add("done");
+      removeArrayText(tmpSpanTag);
+      addArrayText(tmpSpanTag);
+    } else {
+      checkBoxTag.checked = false;
+      checkBoxTag.closest("span").classList.remove("done");
+    }
+    print();
+  });
+
+  removeBtnTag.addEventListener("click", () => {
+    removeArrayText(removeBtnTag);
+    print();
+  });
+}
+
+function print() {
+  textAreaDiv.innerHTML = "<h2>Today</h2>";
+  textArray.forEach((item) => {
+    textAreaDiv.append(item);
+  });
+}
