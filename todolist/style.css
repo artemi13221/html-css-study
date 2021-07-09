@@ -55,6 +55,8 @@ header a {
   display: block;
   border-bottom: 1px solid #dae1e6;
   overflow: hidden;
+  margin: 15px 0px;
+  font-size: 18px;
 }
 
 #textArea button {
