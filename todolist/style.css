@@ -4,6 +4,7 @@
 }
 
 main {
+  background-color: #fefefe;
   margin: 15px auto;
   width: 70%;
 }
@@ -26,6 +27,7 @@ header a {
 
 #input-text {
   width: 70%;
+  height: 70px;
   overflow: hidden;
   position: fixed;
   bottom: 5px;
@@ -36,36 +38,112 @@ header a {
   background-color: #03f4fc;
   border: 0;
   border-radius: 7px;
-  height: 30px;
+  height: 60%;
   width: 100%;
+  font-size: 18px;
 }
 
 #input-text button {
-  height: 100%;
+  height: 40%;
   width: 100%;
   border: 1px solid #dae1e6;
   background-color: #03f4fc;
 }
-#textArea h2 {
+
+#text-area h2 {
   margin-bottom: 20px;
 }
 
-#textArea span {
+#text-area span {
   position: relative;
   display: block;
   border-bottom: 1px solid #dae1e6;
   overflow: hidden;
-  margin: 15px 0px;
+  padding: 15px 0px;
   font-size: 18px;
 }
 
-#textArea button {
-  position: absolute;
-  right: 0;
-  border: 0;
+#text-area span:hover,
+#text-area span:focus {
+  cursor: pointer;
 }
 
 .done {
   text-decoration: line-through;
   color: gray;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-activated {
+  display: block;
+}
+
+.modal-deactivated {
+  display: none;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: auto;
+  width: 60%;
+  height: 80%;
+  padding: 20px;
+}
+
+.cancle-button {
+  font-size: 35px;
+  text-align: end;
+  color: darkgray;
+  text-decoration: none;
+}
+
+.cancle-button:hover,
+.cancle-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content-name {
+  padding: 15px 30px;
+  font-size: 25px;
+  border-bottom: 2px solid #dae1e6;
+}
+
+.modal-content-name > input {
+  zoom: 1.35;
+}
+
+.modal-content-details {
+  position: relative;
+  padding: 15px 30px;
+  font-size: 19px;
+}
+
+.modal-content-details-deleteBtn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #f05650;
+}
+
+.modal-content-details-deleteBtn:hover,
+.modal-content-details-deleteBtn:focus {
+  background-color: #fe6760;
+  color: #fefefe;
+  cursor: pointer;
 }

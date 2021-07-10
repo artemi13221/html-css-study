@@ -66,13 +66,15 @@ window.onload = function () {
     }
 }
 
-// 코드 전체상으로 리팩토링이 요구 된다.
 */
 "use strict";
 const sendBtn = document.querySelector("#text-submit");
 const sendTextBox = document.querySelector("#text-input");
-const textAreaDiv = document.querySelector("#textArea");
+const textAreaDiv = document.querySelector("#text-area");
+const modalBox = document.querySelector("#my-modal");
+const modalBoxRmBtn = document.querySelector(".cancle-button");
 const textArray = [];
+let removeSpanTag;
 
 sendBtn.addEventListener("click", () => {
   if (sendTextBox.value === "") {
@@ -90,14 +92,27 @@ sendTextBox.addEventListener("keydown", (e) => {
   }
 });
 
+window.addEventListener("click", (e) => {
+  if (e.target === modalBox) {
+    disenableModalDiv();
+  }
+});
+
+modalBoxRmBtn.addEventListener("click", () => {
+  disenableModalDiv();
+});
+
 function addArrayText(spanTag) {
-  textArray.push(spanTag);
+  textArray.push({
+    tag: spanTag,
+    date: new Date(),
+  });
 }
 
 function removeArrayText(spanTag) {
   const tmp = spanTag.closest("span");
   textArray.forEach((item, i) => {
-    if (item === tmp) {
+    if (item.tag === tmp) {
       textArray.splice(i, 1);
     }
   });
@@ -105,20 +120,18 @@ function removeArrayText(spanTag) {
 
 function createTextTag(inputMsg) {
   const textSpanTag = document.createElement("span");
-  const textRemoveBtnTag = document.createElement("button");
   const textCheckBoxTag = document.createElement("input");
   textCheckBoxTag.type = "checkbox";
   textCheckBoxTag.checked = false;
 
-  textRemoveBtnTag.append("🗑️");
-  textSpanTag.append(textCheckBoxTag, ` ${inputMsg}`, textRemoveBtnTag);
+  textSpanTag.append(textCheckBoxTag, ` ${inputMsg}`);
 
-  addEventTag(textRemoveBtnTag, textCheckBoxTag);
+  addEventTag(textCheckBoxTag, textSpanTag);
 
   return textSpanTag;
 }
 
-function addEventTag(removeBtnTag, checkBoxTag) {
+function addEventTag(checkBoxTag, spanTag) {
   checkBoxTag.addEventListener("change", (e) => {
     if (e.target.checked) {
       checkBoxTag.checked = true;
@@ -133,15 +146,58 @@ function addEventTag(removeBtnTag, checkBoxTag) {
     print();
   });
 
-  removeBtnTag.addEventListener("click", () => {
-    removeArrayText(removeBtnTag);
-    print();
+  spanTag.addEventListener("click", (e) => {
+    if (e.target !== checkBoxTag) {
+      changeModalContent(e.path[0]);
+      enableModalDiv();
+    }
   });
 }
 
 function print() {
   textAreaDiv.innerHTML = "<h2>Today</h2>";
   textArray.forEach((item) => {
-    textAreaDiv.append(item);
+    textAreaDiv.append(item.tag);
   });
+}
+
+function changeModalContent(spanTag) {
+  const modalBoxName = document.querySelector(".modal-content-name");
+  const modalBoxDate = document.querySelector(".modal-content-details-date");
+  const modalBoxCheckBox = document.createElement("input");
+  const modalBoxSpanTagRmBtn = document.querySelector(
+    ".modal-content-details-deleteBtn"
+  );
+
+  modalBoxCheckBox.type = "checkbox";
+  const arrayIndex = textArray.find((item) => item.tag === spanTag);
+
+  modalBoxCheckBox.checked = spanTag.querySelector("input").checked;
+  modalBoxName.textContent = "";
+  modalBoxDate.textContent = "";
+  modalBoxName.append(modalBoxCheckBox, spanTag.textContent);
+  modalBoxDate.append(`Date : ${arrayIndex.date}`);
+
+  modalBoxCheckBox.addEventListener("change", () => {
+    spanTag.querySelector("input").click();
+  });
+
+  removeSpanTag = spanTag;
+  modalBoxSpanTagRmBtn.addEventListener("click", clickModalBoxSpanTagRmBtn);
+}
+
+function clickModalBoxSpanTagRmBtn() {
+  removeArrayText(removeSpanTag);
+  disenableModalDiv();
+  print();
+}
+
+function enableModalDiv() {
+  modalBox.classList.remove("modal-deactivated");
+  modalBox.classList.add("modal-activated");
+}
+
+function disenableModalDiv() {
+  modalBox.classList.remove("modal-activated");
+  modalBox.classList.add("modal-deactivated");
 }
