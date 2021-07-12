@@ -7,5 +7,5 @@
 ### TaskList
 
 - [x] Dialog(modalbox)
-- [ ] New input textbox and button
-- [ ] dolist classification
+- [x] New input textbox and button
+- [ ] Refactoring Array and dolist classification

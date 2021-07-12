@@ -68,29 +68,14 @@ window.onload = function () {
 
 */
 'use strict';
-const sendBtn = document.querySelector('#text-submit');
-const sendTextBox = document.querySelector('#text-input');
 const textAreaDiv = document.querySelector('#text-area');
 const modalBox = document.querySelector('#my-modal');
 const modalBoxRmBtn = document.querySelector('.cancle-button');
 const textArray = [];
 let removeSpanTag;
+let inputBoxButton = false;
 
-sendBtn.addEventListener('click', () => {
-  if (sendTextBox.value === '') {
-    return;
-  }
-  addArrayText(createTextTag(sendTextBox.value));
-  sendTextBox.value = '';
-
-  print();
-});
-
-sendTextBox.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    sendBtn.click();
-  }
-});
+print();
 
 window.addEventListener('click', (e) => {
   if (e.target === modalBox) {
@@ -158,6 +143,8 @@ function print() {
   textArray.forEach((item) => {
     textAreaDiv.append(item.tag);
   });
+  textAreaDiv.append(makeNewDoListButton(!inputBoxButton));
+  textAreaDiv.append(makeNewDoListInputBox(inputBoxButton));
 }
 
 function changeModalContent(spanTag) {
@@ -197,4 +184,79 @@ function enableModalDiv() {
 function disableModalDiv() {
   modalBox.classList.remove('activated');
   modalBox.classList.add('deactivated');
+}
+
+function makeNewDoListButton(isEnable) {
+  const inputDiv = document.createElement('div');
+  const plusSpan = document.createElement('span');
+  plusSpan.append('+');
+  plusSpan.classList.add('input-span');
+  inputDiv.classList.add('input-div');
+
+  if (isEnable) {
+    inputDiv.classList.remove('deactivated');
+    inputDiv.classList.add('activated');
+  } else {
+    inputDiv.classList.remove('activated');
+    inputDiv.classList.add('deactivated');
+  }
+  inputDiv.append(plusSpan, 'Add task');
+
+  clickNewDoList(inputDiv);
+
+  return inputDiv;
+}
+
+function makeNewDoListInputBox(isEnable) {
+  const inputDiv = document.createElement('div');
+  const inputText = document.createElement('input');
+  inputText.type = 'text';
+  const inputEnterButton = document.createElement('button');
+  const inputCancleButton = document.createElement('button');
+  inputDiv.classList.add('input-type-div');
+  inputEnterButton.append('Add task');
+  inputCancleButton.append('Cancle');
+
+  inputEnterButton.classList.add('input-enter-button');
+  inputCancleButton.classList.add('input-cancle-button');
+
+  if (isEnable) {
+    inputDiv.classList.remove('deactivated');
+    inputDiv.classList.add('activated');
+  } else {
+    inputDiv.classList.remove('activated');
+    inputDiv.classList.add('deactivated');
+  }
+
+  inputDiv.append(inputText, inputEnterButton, inputCancleButton);
+  clickInputBoxEnter(inputEnterButton);
+  clickInputBoxCancle(inputCancleButton);
+
+  return inputDiv;
+}
+
+function clickNewDoList(inputDiv) {
+  inputDiv.addEventListener('click', () => {
+    inputBoxButton = !inputBoxButton;
+    print();
+  });
+}
+
+function clickInputBoxEnter(inputEnterButton) {
+  inputEnterButton.addEventListener('click', () => {
+    const inputText = document.querySelector('.input-type-div input');
+    if (inputText.value === '') {
+      return;
+    }
+    addArrayText(createTextTag(inputText.value));
+    inputBoxButton = !inputBoxButton;
+    print();
+  });
+}
+
+function clickInputBoxCancle(inputCancleButton) {
+  inputCancleButton.addEventListener('click', () => {
+    inputBoxButton = !inputBoxButton;
+    print();
+  });
 }
