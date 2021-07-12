@@ -54,7 +54,7 @@ header a {
   margin-bottom: 20px;
 }
 
-#text-area span {
+#text-area > span {
   position: relative;
   display: block;
   border-bottom: 1px solid #dae1e6;
@@ -63,9 +63,66 @@ header a {
   font-size: 18px;
 }
 
-#text-area span:hover,
-#text-area span:focus {
+#text-area > span:hover,
+#text-area > span:focus {
   cursor: pointer;
+}
+
+#text-area .input-div {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+#text-area .input-div .input-span {
+  margin-right: 5px;
+  font-size: 24px;
+  color: #f05650;
+}
+
+#text-area .input-div:hover,
+#text-area .input-div:focus {
+  color: #f05650;
+  cursor: pointer;
+}
+
+#text-area .input-type-div input {
+  width: 100%;
+  background-color: #fcd3d3;
+  height: 30px;
+}
+
+#text-area .input-type-div button {
+  width: 8%;
+  height: 28px;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+#text-area .input-type-div button:hover,
+#text-area .input-type-div button:focus {
+  cursor: pointer;
+}
+#text-area .input-type-div {
+  margin-top: 10px;
+}
+
+#text-area .input-type-div .input-enter-button {
+  background-color: #f05650;
+  color: #dfdfdf;
+  border: 0;
+}
+
+#text-area .input-type-div .input-cancle-button {
+  border: 0;
+  color: #fcd3d3;
+  background-color: #fefefe;
+}
+
+#text-area .input-type-div .input-cancle-button:hover,
+#text-area .input-type-div .input-cancle-button:focus {
+  text-decoration: underline;
+  color: #130101;
 }
 
 .done {
